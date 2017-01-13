@@ -1,0 +1,37 @@
+//
+//  PrefixHeader.pch
+//
+//
+//  Created by zhb on 16/6/14.
+//  Copyright © 2016年 zhb. All rights reserved.
+//
+
+
+#pragma mark - 自定义NSLog
+
+#ifdef __OBJC__
+
+#ifdef DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"%s:%d\t  %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(FORMAT, ...) nil
+#endif
+
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <IJKMediaFramework/IJKMediaFramework.h>
+#import <Masonry.h>
+#import "UIView+Extension.h"
+#import "UIViewController+HUD.h"
+#import "DTConstant.h"
+#import "NetworkTool.h"
+#import <MJExtension.h>
+#import "UIViewController+Extension.h"
+#import "NSObject+HUD.h"
+
+#endif /* PrefixHeader_pch */
+
+
+#endif
